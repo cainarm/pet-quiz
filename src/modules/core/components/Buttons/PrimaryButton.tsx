@@ -9,9 +9,9 @@ export function PrimaryButton(props: Props) {
 const Button = styled.button`
   border: none;
   background: ${(props) => props.theme.colors.text};
-  border: 1px solid black;
+  border: 1px solid ${(props) => props.theme.colors.text};
   color: white;
-  padding: 16px 32px;
+  padding: 8px 16px;
   border-radius: 32px;
   cursor: pointer;
   font-family: ${(props) => props.theme.font.secondary.style.fontFamily};
