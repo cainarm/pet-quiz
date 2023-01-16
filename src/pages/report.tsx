@@ -1,16 +1,13 @@
 import styled from "styled-components";
-import Link from "next/link";
-import { Heading, Paragraph } from "@/modules/core/components/Typography";
-
 
 export default function ReportPage() {
-    
   return (
     <Container>
-      <Heading>Your dog health report !</Heading>
-      <Paragraph>
-        Imagine a very nice health report in here.
-      </Paragraph>
+      <Report
+        src={
+          "https://cdn.shopify.com/s/files/1/0603/5852/5127/files/Report_Prototype_1_1_1000x.png?v=1673438740"
+        }
+      />
     </Container>
   );
 }
@@ -19,10 +16,14 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto;
-  gap: 1em;
+
   width: 100%;
-  height: 100%;
-  padding-top: 6em;
   background-color: ${(props) => props.theme.colors.primary};
+`;
+
+const Report = styled.img`
+  width: 100%;
+  max-width: 52em;
+  border: 2px solid ${(props) => props.theme.colors.text};
+
 `;

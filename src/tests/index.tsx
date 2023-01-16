@@ -1,13 +1,17 @@
 import React, { ReactElement } from "react";
 import { render, RenderOptions } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
-import theme from "@/theme";
 
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeProvider
       theme={{
-        ...theme,
+        colors: {
+          primary: "#d4eaf0",
+          secondary: "#fac1c7",
+          text: "#040404",
+        },
+
         font: {
           primary: {
             style: {

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 type Props = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
@@ -16,6 +16,12 @@ const Button = styled.button`
   cursor: pointer;
   font-family: ${(props) => props.theme.font.secondary.style.fontFamily};
   transition: background 0.1s ease-in-out;
+
+  ${(props) =>
+    props.disabled &&
+    css`
+      cursor: not-allowed;
+    `};
 
   &:hover {
     background: white;
