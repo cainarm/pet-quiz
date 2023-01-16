@@ -69,5 +69,9 @@ const Choice = styled.div`
   background-color: white;
   cursor: pointer;
   background: ${(props) =>
-    props['aria-selected'] ? props.theme.colors.secondary : "white"};
+    props["aria-selected"] ? props.theme.colors.secondary : "white"};
+
+  &:focus {
+    outline-color: ${(props) => props.theme.colors.secondary};
+  }
 `;

@@ -8,7 +8,7 @@ export function PrimaryButton(props: Props) {
 
 const Button = styled.button`
   border: none;
-  background: black;
+  background: ${(props) => props.theme.colors.text};
   border: 1px solid black;
   color: white;
   padding: 1em 2em;
@@ -17,14 +17,17 @@ const Button = styled.button`
   font-family: ${(props) => props.theme.font.secondary.style.fontFamily};
   transition: background 0.1s ease-in-out;
 
-  ${(props) =>
-    props.disabled &&
-    css`
-      cursor: not-allowed;
-    `};
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 
   &:hover {
     background: white;
-    color: black;
+    color: ${(props) => props.theme.colors.text};
+  }
+
+  &:focus {
+    outline-color: ${(props) => props.theme.colors.secondary};
   }
 `;
