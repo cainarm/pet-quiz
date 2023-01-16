@@ -42,15 +42,15 @@ export function Question({ text, choices, selectedChoices, onSelect }: Props) {
 const Wrapper = styled.div`
   width: 100%;
   border: 2px solid ${(props) => props.theme.colors.text};
-  padding: 1.25em;
+  padding: 20px;
 
   ul {
     list-style: none;
     padding: 0;
-    margin-top: 1em;
+    margin-top: 16px;
     display: flex;
     flex-direction: column;
-    gap: 0.5em;
+    gap: 8px;
   }
 `;
 
@@ -65,7 +65,7 @@ const Choice = styled.div`
   width: 100%;
   height: 2rem;
   border: 2px solid ${(props) => props.theme.colors.text};
-  padding: 0.2em 0.4em;
+  padding: 2px 6px;
   background-color: white;
   cursor: pointer;
   background: ${(props) =>

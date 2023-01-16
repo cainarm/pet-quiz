@@ -60,7 +60,7 @@ describe("useQuestions", () => {
 
   it("should set the current question to the first question on initial render", () => {
     const { result } = renderHook(() => useQuestions(questions));
-    expect(result.current.state.currentQuestion).toEqual(questions[0]);
+    expect(result.current.state.currentQuestion.slug).toEqual(questions[0].slug);
   });
 
   it('should set the current question to the next question after "goToNextQuestion" is called', async () => {
@@ -105,7 +105,7 @@ describe("useQuestions", () => {
       result.current.modifiers.addAnswer("red");
     });
 
-    expect(result.current.state.questionAnswers).toEqual(["red"]);
+    expect(result.current.state.currentQuestion.answers).toEqual(["red"]);
   });
 
   it('should remove an answer from the "answers" state when "addAnswer" is called with the same answer for multiple choice question', () => {
@@ -122,7 +122,7 @@ describe("useQuestions", () => {
       result.current.modifiers.addAnswer("reading");
     });
 
-    expect(result.current.state.questionAnswers).toEqual([]);
+    expect(result.current.state.currentQuestion.answers).toEqual([]);
   });
 
   it('should allow user to add multiple answers to the "answers" state when "addAnswer" is called for multiple choice question', () => {
@@ -138,7 +138,7 @@ describe("useQuestions", () => {
       result.current.modifiers.addAnswer("reading");
     });
 
-    expect(result.current.state.questionAnswers).toEqual(["writing", "reading"]);
+    expect(result.current.state.currentQuestion.answers).toEqual(["writing", "reading"]);
   });
 
   it('should replace answer when "addAnswer" is called for single choice question', () => {
@@ -151,7 +151,7 @@ describe("useQuestions", () => {
       result.current.modifiers.addAnswer("blue");
     });
 
-    expect(result.current.state.questionAnswers).toEqual(["blue"]);
+    expect(result.current.state.currentQuestion.answers).toEqual(["blue"]);
   });
 
   it("should skip out questions do not meet skipConditions criteria", () => {

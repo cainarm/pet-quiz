@@ -92,18 +92,19 @@ export function useQuestions(questions: Question[]) {
 
   const questionsFilteredBySkipConditions = questions.filter(
     (question) =>
-      !question.skipConditions?.every(
-        (skipCondition) =>
-          state.answers?.[skipCondition.slug]?.includes(skipCondition.value)
+      !question.skipConditions?.every((skipCondition) =>
+        state.answers?.[skipCondition.slug]?.includes(skipCondition.value)
       )
   );
 
   const currentQuestion = questionsFilteredBySkipConditions[state.currentPage];
 
-
   function goToNextQuestion() {
-    const questionHasAnswers = Boolean(state.answers[currentQuestion.slug]?.length)
-    const isNotLastQuestion = state.currentPage < questionsFilteredBySkipConditions.length - 1;
+    const questionHasAnswers = Boolean(
+      state.answers[currentQuestion.slug]?.length
+    );
+    const isNotLastQuestion =
+      state.currentPage < questionsFilteredBySkipConditions.length - 1;
 
     if (questionHasAnswers && isNotLastQuestion) {
       dispatch({ type: ActionTypes.NEXT_PAGE });
@@ -127,11 +128,14 @@ export function useQuestions(questions: Question[]) {
 
   return {
     state: {
-      currentQuestion,
-      questionAnswers: state.answers[currentQuestion.slug] || [],
-      isLastQuestion: state.currentPage === questionsFilteredBySkipConditions.length - 1,
+      currentQuestion: {
+        ...currentQuestion,
+        answers: state.answers[currentQuestion.slug] || [],
+      },
+      isLastQuestion:
+        state.currentPage === questionsFilteredBySkipConditions.length - 1,
       isFirstQuestion: state.currentPage === 0,
-      answers: state.answers,
+      totalAnswers: state.answers,
     },
     modifiers: {
       goToNextQuestion,

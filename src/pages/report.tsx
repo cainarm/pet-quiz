@@ -23,7 +23,6 @@ const Container = styled.div`
 
 const Report = styled.img`
   width: 100%;
-  max-width: 52em;
+  max-width: 832px;
   border: 2px solid ${(props) => props.theme.colors.text};
-
 `;

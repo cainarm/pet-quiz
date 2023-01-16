@@ -14,18 +14,12 @@ type Props = {
 
 export function QuizPage({ title, questions, submitFn, onSuccess }: Props) {
   const {
-    state: {
-      answers,
-      questionAnswers,
-      currentQuestion,
-      isLastQuestion,
-      isFirstQuestion,
-    },
+    state: { totalAnswers, currentQuestion, isLastQuestion, isFirstQuestion },
     modifiers: { goToNextQuestion, goToPreviousQuestion, addAnswer },
   } = useQuestions(questions);
 
   function submitAnswers() {
-    submitFn(answers).finally(() => {
+    submitFn(totalAnswers).finally(() => {
       onSuccess();
     });
   }
@@ -38,7 +32,7 @@ export function QuizPage({ title, questions, submitFn, onSuccess }: Props) {
           <QuestionAndChoices
             text={currentQuestion.text}
             choices={currentQuestion.choices}
-            selectedChoices={questionAnswers}
+            selectedChoices={currentQuestion.answers}
             onSelect={addAnswer}
           />
           <Buttons>
@@ -50,7 +44,7 @@ export function QuizPage({ title, questions, submitFn, onSuccess }: Props) {
             </PrimaryButton>
             <PrimaryButton
               onClick={isLastQuestion ? submitAnswers : goToNextQuestion}
-              disabled={!questionAnswers.length}
+              disabled={!currentQuestion.answers.length}
             >
               {isLastQuestion ? "Finish" : "Next"}
             </PrimaryButton>
@@ -67,27 +61,27 @@ const Main = styled.main`
   background-color: ${(props) => props.theme.colors.primary};
 `;
 
-const Quiz = styled.section`
-  width: 100%;
-  width: 36rem;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-`;
-
 const Content = styled.div`
   margin: auto;
   width: 100%;
   height: 100%;
-  max-width: 122.8rem;
+  max-width: 1800px;
   padding: 20px;
 
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+`;
+
+const Quiz = styled.section`
+  width: 100%;
+  width: 567px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
 `;
 
 const Buttons = styled.div`
