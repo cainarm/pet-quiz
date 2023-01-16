@@ -63,7 +63,7 @@ const Header = styled.div`
 
 const Choice = styled.div`
   width: 100%;
-  height: 2rem;
+  height: 32px;
   border: 2px solid ${(props) => props.theme.colors.text};
   padding: 2px 6px;
   background-color: white;
