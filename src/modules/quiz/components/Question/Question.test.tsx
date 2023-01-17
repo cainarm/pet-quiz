@@ -40,7 +40,10 @@ describe("Question", () => {
   it("highlight the selected choice", () => {
     render(<Question {...props} selectedChoices={["tea"]} />);
 
-    expect(screen.getByText("Tea").parentElement).toHaveAttribute("aria-selected", "true");
+    expect(screen.getByText("Tea").parentElement).toHaveAttribute(
+      "aria-selected",
+      "true"
+    );
   });
 
   it("should call onSelect when enter key is pressed", () => {

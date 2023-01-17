@@ -12,6 +12,7 @@ To get started, you'll need to have Node.js and npm or yarn installed on your ma
 4. Open your browser to `http://localhost:3000`
 
 ## Techs
+
 - Styling with [Styled Components](https://styled-components.com/)
 - Unit testing with [Vitest](https://vitest.dev) and [Testing Library](https://testing-library.com)
 - Code formatting with [Prettier](https://prettier.io)

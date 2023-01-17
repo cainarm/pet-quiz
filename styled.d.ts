@@ -11,6 +11,6 @@ declare module "styled-components" {
     font: {
       primary: NextFont;
       secondary: NextFont;
-    }
+    };
   }
 }

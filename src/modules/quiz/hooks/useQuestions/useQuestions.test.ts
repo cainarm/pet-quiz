@@ -60,7 +60,9 @@ describe("useQuestions", () => {
 
   it("should set the current question to the first question on initial render", () => {
     const { result } = renderHook(() => useQuestions(questions));
-    expect(result.current.state.currentQuestion.slug).toEqual(questions[0].slug);
+    expect(result.current.state.currentQuestion.slug).toEqual(
+      questions[0].slug
+    );
   });
 
   it('should set the current question to the next question after "goToNextQuestion" is called', async () => {
@@ -138,7 +140,10 @@ describe("useQuestions", () => {
       result.current.modifiers.addAnswer("reading");
     });
 
-    expect(result.current.state.currentQuestion.answers).toEqual(["writing", "reading"]);
+    expect(result.current.state.currentQuestion.answers).toEqual([
+      "writing",
+      "reading",
+    ]);
   });
 
   it('should replace answer when "addAnswer" is called for single choice question', () => {

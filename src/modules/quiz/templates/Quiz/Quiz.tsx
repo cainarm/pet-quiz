@@ -58,7 +58,6 @@ const Main = styled.main`
   height: 100%;
   background-color: ${(props) => props.theme.colors.primary};
   display: flex;
-
 `;
 
 const Quiz = styled.section`

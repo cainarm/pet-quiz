@@ -10,6 +10,7 @@ const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
           primary: "#d4eaf0",
           secondary: "#fac1c7",
           text: "#040404",
+          outline: "#f5f5f5",
         },
 
         font: {
