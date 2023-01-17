@@ -90,7 +90,7 @@ describe("index page", () => {
     vi.clearAllMocks();
   });
 
-  it("should render list, previous button should be disabled",  () => {
+  it("should render list, previous button should be disabled", () => {
     render(<QuizPage {...props} />);
 
     expect(
@@ -161,6 +161,33 @@ describe("index page", () => {
 
     await waitFor(() => {
       expect(props.onSuccess).toHaveBeenCalled();
-    })
+    });
+  });
+
+  it("user should not be able to select multiple when question is single choice", () => {
+    render(<QuizPage {...props} />);
+
+    fireEvent.click(screen.getByText("Yes"));
+    fireEvent.click(screen.getByText("No"));
+
+    expect(document.querySelectorAll("[aria-selected='true']")).toHaveLength(1);
+    expect(screen.getByText("No").parentElement).toHaveAttribute(
+      "aria-selected",
+      "true"
+    );
+  });
+
+  it("user should  be able to select multiple when question is multiple choice", () => {
+    render(<QuizPage {...props} questions={[props.questions[1]]} />);
+
+    expect(
+      screen.getByText("How frequently does your dog get ear infections?")
+    ).toBeInTheDocument();
+
+    fireEvent.click(screen.getByText("Once a month"));
+    fireEvent.click(screen.getByText("Every other month"));
+    fireEvent.click(screen.getByText("Twice a year"));
+
+    expect(document.querySelectorAll("[aria-selected='true']")).toHaveLength(3);
   });
 });
