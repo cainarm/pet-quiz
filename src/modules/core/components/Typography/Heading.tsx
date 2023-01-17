@@ -11,4 +11,6 @@ export function Heading({ variant, ...props }: Props) {
 const StyledHeading = styled.h1`
   font-family: ${(props) => props.theme.font.primary.style.fontFamily};
   color: ${(props) => props.theme.colors.text};
+  font-size: 2.2rem;
+  font-weight: 300;
 `;

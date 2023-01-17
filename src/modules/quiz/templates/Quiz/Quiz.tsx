@@ -26,31 +26,29 @@ export function QuizPage({ title, questions, submitFn, onSuccess }: Props) {
 
   return (
     <Main>
-      <Content>
-        <Quiz>
-          <Heading>{title}</Heading>
-          <QuestionAndChoices
-            text={currentQuestion.text}
-            choices={currentQuestion.choices}
-            selectedChoices={currentQuestion.answers}
-            onSelect={addAnswer}
-          />
-          <Buttons>
-            <PrimaryButton
-              onClick={goToPreviousQuestion}
-              disabled={isFirstQuestion}
-            >
-              Previous
-            </PrimaryButton>
-            <PrimaryButton
-              onClick={isLastQuestion ? submitAnswers : goToNextQuestion}
-              disabled={!currentQuestion.answers.length}
-            >
-              {isLastQuestion ? "Finish" : "Next"}
-            </PrimaryButton>
-          </Buttons>
-        </Quiz>
-      </Content>
+      <Quiz>
+        <Heading>{title}</Heading>
+        <QuestionAndChoices
+          text={currentQuestion.text}
+          choices={currentQuestion.choices}
+          selectedChoices={currentQuestion.answers}
+          onSelect={addAnswer}
+        />
+        <Buttons>
+          <PrimaryButton
+            onClick={goToPreviousQuestion}
+            disabled={isFirstQuestion}
+          >
+            Previous
+          </PrimaryButton>
+          <PrimaryButton
+            onClick={isLastQuestion ? submitAnswers : goToNextQuestion}
+            disabled={!currentQuestion.answers.length}
+          >
+            {isLastQuestion ? "Finish" : "Next"}
+          </PrimaryButton>
+        </Buttons>
+      </Quiz>
     </Main>
   );
 }
@@ -59,19 +57,8 @@ const Main = styled.main`
   width: 100%;
   height: 100%;
   background-color: ${(props) => props.theme.colors.primary};
-`;
-
-const Content = styled.div`
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  max-width: 1800px;
-  padding: 20px;
-
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+
 `;
 
 const Quiz = styled.section`

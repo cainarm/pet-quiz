@@ -44,7 +44,6 @@ describe("Question", () => {
   });
 
   it("should call onSelect when enter key is pressed", () => {
-
     render(<Question {...props} />);
     fireEvent.keyDown(screen.getByText("Water"), { key: "Enter", code: 13 });
     expect(props.onSelect).toHaveBeenCalledWith("water");

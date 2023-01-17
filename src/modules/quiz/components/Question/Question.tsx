@@ -13,9 +13,7 @@ export function Question({ text, choices, selectedChoices, onSelect }: Props) {
   return (
     <Wrapper>
       <Header>
-        <Paragraph>
-          <b>{text}</b>
-        </Paragraph>
+        <Paragraph>{text}</Paragraph>
       </Header>
       <ul>
         {choices.map((choice) => (
@@ -42,12 +40,13 @@ export function Question({ text, choices, selectedChoices, onSelect }: Props) {
 const Wrapper = styled.div`
   width: 100%;
   border: 2px solid ${(props) => props.theme.colors.text};
-  padding: 20px;
+  padding: 16px;
+  background-color: white;
 
   ul {
     list-style: none;
     padding: 0;
-    margin-top: 16px;
+    margin-top: 24px;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -75,6 +74,6 @@ const Choice = styled.div`
     props["aria-selected"] ? props.theme.colors.secondary : "white"};
 
   &:focus {
-    outline-color: ${(props) => props.theme.colors.secondary};
+    outline-color: ${(props) => props.theme.colors.outline};
   }
 `;

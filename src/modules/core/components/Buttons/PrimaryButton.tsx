@@ -28,6 +28,6 @@ const Button = styled.button`
   }
 
   &:focus {
-    outline-color: ${(props) => props.theme.colors.secondary};
+    outline-color: ${(props) => props.theme.colors.outline};
   }
 `;
