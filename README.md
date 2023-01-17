@@ -2,6 +2,9 @@
 
 This is a mock pet quiz application that helps users check on their dog's health.
 
+## Requirements
+1. Node v18.12.1
+
 ## Getting Started
 
 To get started, you'll need to have Node.js and npm or yarn installed on your machine.
