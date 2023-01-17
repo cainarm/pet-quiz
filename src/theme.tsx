@@ -1,4 +1,4 @@
-import { Kumbh_Sans, PT_Serif, Bitter } from "@next/font/google";
+import { Kumbh_Sans, Bitter } from "@next/font/google";
 
 const primaryFont = Bitter({
   weight: ["300"],

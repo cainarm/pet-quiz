@@ -12,5 +12,4 @@ const StyledParagraph = styled.p`
   font-family: ${(props) => props.theme.font.secondary.style.fontFamily};
   color: ${(props) => props.theme.colors.text};
   font-size: 1rem;
-  font-weight: 400;
 `;
