@@ -1,6 +1,6 @@
 # Pet Quiz
 
-This is a pet quiz application that helps users check on their dog's health.
+This is a mock pet quiz application that helps users check on their dog's health.
 
 ## Getting Started
 
