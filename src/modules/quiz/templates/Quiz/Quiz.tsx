@@ -56,6 +56,7 @@ export function QuizPage({ title, questions, submitFn, onSuccess }: Props) {
 const Main = styled.main`
   width: 100%;
   height: 100%;
+  padding: 16px;
   background-color: ${(props) => props.theme.colors.primary};
   display: flex;
 `;
